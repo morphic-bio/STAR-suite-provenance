@@ -1,0 +1,216 @@
+{
+  "schema": "starsuite.provenance_record/v1",
+  "record_id": "paper-2026-scrnaseq-pbmc10k-v1.9.5",
+  "recorded_utc": "2026-09-22T01:29:41.589414+00:00",
+  "kind": "correction",
+  "status": "complete",
+  "supersedes": [
+    "paper-2026-scrnaseq-pbmc10k-v1.9.4"
+  ],
+  "software": [
+    {
+      "repository": "https://github.com/morphic-bio/STAR-suite",
+      "revision": "fb9f1f4e0c380d8301041cb16ff3fd9856b62ce5",
+      "version": "1.9.5"
+    }
+  ],
+  "environment": {
+    "hardware_class": "Intel Core i9-13900KF workstation",
+    "physical_memory_gib": 128,
+    "os_usable_memtotal_kib": 131707456,
+    "logical_cpu_count": 32,
+    "requested_threads": 32,
+    "storage": "Local NVMe for all biological inputs, references, outputs and scratch",
+    "binary_sha256": "2ae4ed73990f81b6b44bbb8df17cd9a41adbe2c46f87aa6d5b4c0c337ee124b1"
+  },
+  "method": "Cell Ranger-compatible GeneFull single-cell RNA quantification on PBMC10K, glioma, organoid, and MSK ES GEX-only. Cell Ranger 9.0.1 and CellGENI STARsolo outputs and times are retained. MSK GEX-only is an auxiliary session-consistency arm. Cell-call Jaccard, per-cell UMI totals, log-count cell profiles, and raw shared-gene totals are recomputed from the new matrices. The corrected 1.9.5 tag was built with the accepted benchmark recipe and one SHA256-identified binary was used everywhere. Scientific arguments, input formats, reference content, hash caches, and caller settings were preserved. Each arm ran once on a quiet host, with fresh outputs and a fatal cold-cache preflight. All input, reference, output, temporary and spill locations were checked against the intended storage. Comparator outputs and times were retained; no comparator was rerun. Completion, executed-command identity, the 1.30 maximum timing ratio, and canonical correlation/cell-call tolerances were checked before scheduling the next arm. Byte equality is a recorded diagnostic rather than an acceptance gate.",
+  "evidence": [
+    {
+      "arm": "SOLO_PUB_STAR",
+      "dataset": "PBMC10K",
+      "hardware_class": "local workstation",
+      "input": "BGZF",
+      "elapsed_seconds": 977.79,
+      "previous_elapsed_seconds": 967.85,
+      "driver_elapsed_seconds": 977.79,
+      "previous_driver_elapsed_seconds": 967.85,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 10,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 3780,
+      "speedup": 3.8658607676494956,
+      "concordance": [
+        {
+          "dataset": "PBMC10K",
+          "level": "per-sample",
+          "sample": "PBMC10K",
+          "cr_cells": 11806,
+          "star_cells": 11863,
+          "shared": 11805,
+          "jaccard": 0.99502697,
+          "cell_total_r": 0.99998693,
+          "cell_profile_r": 0.991842,
+          "cell_profile_r_median": 0.99192254,
+          "cell_profile_rho": 0.98356033,
+          "profile_cells": 11805,
+          "profile_genes": 16273,
+          "genes": 38606,
+          "gene_spearman": 0.98983413,
+          "gene_pearson": 0.99983076
+        }
+      ]
+    },
+    {
+      "arm": "SCRNA_gse261042_glioma",
+      "dataset": "gse261042_glioma",
+      "hardware_class": "local workstation",
+      "input": "delivered FASTQ",
+      "elapsed_seconds": 312.25,
+      "previous_elapsed_seconds": 313.48,
+      "driver_elapsed_seconds": 312.25,
+      "previous_driver_elapsed_seconds": 313.48,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 19,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 1170.54,
+      "speedup": 3.748726981585268,
+      "concordance": [
+        {
+          "dataset": "gse261042_glioma",
+          "level": "per-sample",
+          "sample": "gse261042_glioma",
+          "cr_cells": 6427,
+          "star_cells": 6441,
+          "shared": 6427,
+          "jaccard": 0.99782642,
+          "cell_total_r": 0.99997627,
+          "cell_profile_r": 0.99424553,
+          "cell_profile_r_median": 0.99462912,
+          "cell_profile_rho": 0.9902625,
+          "profile_cells": 6427,
+          "profile_genes": 16411,
+          "genes": 38606,
+          "gene_spearman": 0.99204878,
+          "gene_pearson": 0.99934784
+        }
+      ]
+    },
+    {
+      "arm": "SCRNA_gse316010_organoid",
+      "dataset": "gse316010_organoid",
+      "hardware_class": "local workstation",
+      "input": "delivered FASTQ",
+      "elapsed_seconds": 686.73,
+      "previous_elapsed_seconds": 690.35,
+      "driver_elapsed_seconds": 686.73,
+      "previous_driver_elapsed_seconds": 690.35,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 19,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 2314.26,
+      "speedup": 3.3699707308549214,
+      "concordance": [
+        {
+          "dataset": "gse316010_organoid",
+          "level": "per-sample",
+          "sample": "gse316010_organoid",
+          "cr_cells": 10060,
+          "star_cells": 10352,
+          "shared": 10054,
+          "jaccard": 0.9706507,
+          "cell_total_r": 0.9999978,
+          "cell_profile_r": 0.99614465,
+          "cell_profile_r_median": 0.99674796,
+          "cell_profile_rho": 0.9930855,
+          "profile_cells": 10054,
+          "profile_genes": 13998,
+          "genes": 38606,
+          "gene_spearman": 0.99259732,
+          "gene_pearson": 0.99994363
+        }
+      ]
+    },
+    {
+      "arm": "SCRNA_msk_es_gex",
+      "dataset": "msk_es_gex",
+      "hardware_class": "local workstation",
+      "input": "delivered FASTQ",
+      "elapsed_seconds": 1092.21,
+      "previous_elapsed_seconds": 1083.44,
+      "driver_elapsed_seconds": 1092.21,
+      "previous_driver_elapsed_seconds": 1083.44,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 19,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 2826.42,
+      "speedup": 2.587799049633312,
+      "concordance": [
+        {
+          "dataset": "msk_es_gex",
+          "level": "per-sample",
+          "sample": "msk_es_gex",
+          "cr_cells": 32668,
+          "star_cells": 32898,
+          "shared": 32654,
+          "jaccard": 0.99216091,
+          "cell_total_r": 0.99997597,
+          "cell_profile_r": 0.99117575,
+          "cell_profile_r_median": 0.99189604,
+          "cell_profile_rho": 0.98543658,
+          "profile_cells": 32654,
+          "profile_genes": 16975,
+          "genes": 38606,
+          "gene_spearman": 0.99286613,
+          "gene_pearson": 0.99936334
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "One timed execution per arm, not a replicated distribution.",
+    "Retained comparator outputs are comparison evidence rather than ground truth.",
+    "Wall times depend on the recorded CPU, storage and cache conditions."
+  ],
+  "artifacts": [
+    {
+      "logical_uri": "record://paper-2026-scrnaseq-pbmc10k-v1.9.5/SOLO_PUB_STAR/RESULT.json",
+      "sha256": "bd73c9bd8d1c361fb0a99fa536198c6a86e0993609a20a0ef3d73ba354053453"
+    },
+    {
+      "logical_uri": "record://paper-2026-scrnaseq-pbmc10k-v1.9.5/SOLO_PUB_STAR/PARITY_GATES.json",
+      "sha256": "69e715f497238599ef5adcf89ac9641b17f9c74091c7114658f9c8de5e1681ce"
+    },
+    {
+      "logical_uri": "record://paper-2026-scrnaseq-pbmc10k-v1.9.5/SCRNA_gse261042_glioma/RESULT.json",
+      "sha256": "c0031c1aa2454337e6c77ad80068fa75a5d1348dc6d81f140ceacdce147fc94d"
+    },
+    {
+      "logical_uri": "record://paper-2026-scrnaseq-pbmc10k-v1.9.5/SCRNA_gse261042_glioma/PARITY_GATES.json",
+      "sha256": "b6041d3b73bcb0264ac335a796a8febac07b45f887195d739477c20e12581741"
+    },
+    {
+      "logical_uri": "record://paper-2026-scrnaseq-pbmc10k-v1.9.5/SCRNA_gse316010_organoid/RESULT.json",
+      "sha256": "6b8bede978a2149a84d4d1190c595d7fb4f4d362445404b3e4ff9a7a3cf60663"
+    },
+    {
+      "logical_uri": "record://paper-2026-scrnaseq-pbmc10k-v1.9.5/SCRNA_gse316010_organoid/PARITY_GATES.json",
+      "sha256": "237bb8d8241260289c02136866db7cee70033204f12176d56e285a10178e1b06"
+    },
+    {
+      "logical_uri": "record://paper-2026-scrnaseq-pbmc10k-v1.9.5/SCRNA_msk_es_gex/RESULT.json",
+      "sha256": "2d8c9a268eb911a8475f3f22880fd8ed47c3b9cab75c7ffe50622b0c1e548309"
+    },
+    {
+      "logical_uri": "record://paper-2026-scrnaseq-pbmc10k-v1.9.5/SCRNA_msk_es_gex/PARITY_GATES.json",
+      "sha256": "4d94c8e15953f1b785e2bbe387c94dd9f25e26a3aad4e8f7bf0906f0fb5cc4dc"
+    }
+  ]
+}

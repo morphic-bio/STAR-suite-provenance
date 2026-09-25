@@ -1,0 +1,384 @@
+{
+  "schema": "starsuite.provenance_record/v1",
+  "record_id": "paper-2026-flex-gse325982-included-probes-v1.9.5",
+  "recorded_utc": "2026-09-25T13:57:16.945218+00:00",
+  "kind": "correction",
+  "status": "complete",
+  "supersedes": [
+    "paper-2026-flex-v1.9.5"
+  ],
+  "software": [
+    {
+      "repository": "https://github.com/morphic-bio/STAR-suite",
+      "revision": "fb9f1f4e0c380d8301041cb16ff3fd9856b62ce5",
+      "version": "1.9.5"
+    }
+  ],
+  "environment": {
+    "binary_sha256": "2ae4ed73990f81b6b44bbb8df17cd9a41adbe2c46f87aa6d5b4c0c337ee124b1",
+    "cyto_sha256": "ab5fc5f00b671c972a389f5f5392930002417884be365060a196a817d5d12503",
+    "local_workstation": {
+      "hardware_class": "Intel Core i9-13900KF workstation",
+      "logical_cpu_count": 32,
+      "requested_threads": 32,
+      "storage": "Local NVMe for all inputs, references, outputs and scratch"
+    },
+    "cloud_hosts": [
+      {
+        "instance_type": "m6id.16xlarge",
+        "storage": "Two local NVMe devices in RAID0",
+        "logical_cpu_count": 32,
+        "memory_limit_gib": 128
+      },
+      {
+        "instance_type": "h1.8xlarge",
+        "storage": "Four local HDD devices in RAID5",
+        "logical_cpu_count": 32,
+        "memory_limit_gib": 128
+      }
+    ]
+  },
+  "method": "GSE325982 re-run on 2026-09-23 with every tool on Cell Ranger's default probe policy, the included probes only: Cell Ranger 9.0.1 with filter-probes true, STAR-Flex exporting the included-probe gene set (18,129 genes) and cyto 0.4.7 with the included-probe gene table. STAR-Flex from the original plain-gzip FASTQ through rapidgzip and from CBQ; cyto from gzip FASTQ and CBQ; Cell Ranger from FASTQ, no BAM, no secondary analysis, 32 cores. One run per arm on each of three hosts (local workstation, cloud NVMe m6id, cloud HDD h1), each on a quiet host with a cold page cache and all loci checked. Wall time is whole-process GNU time; disk is the peak growth above the pre-run baseline sampled every 5 s. Concordance is computed with the same script as the other Flex datasets, pooled over the four single-tag samples with a cell identified by barcode and tag.",
+  "evidence": [
+    {
+      "arm": "local_star_cbq",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "tool": "STAR Suite 1.9.5",
+      "input": "CBQ",
+      "elapsed_seconds": 108.35,
+      "peak_rss_kib": 18637400,
+      "peak_disk_growth_gib": 4.56,
+      "reference_elapsed_seconds": 4446.0,
+      "speedup_vs_cell_ranger": 41.03368712505769,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38671.0,
+        "shared": 38439.0,
+        "jaccard": 0.99387217,
+        "cell_total_r": 0.99997073,
+        "cell_profile_r": 0.99519986,
+        "gene_spearman": 0.99996163,
+        "gene_pearson": 0.99999925
+      }
+    },
+    {
+      "arm": "local_star_gzip",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "tool": "STAR Suite 1.9.5",
+      "input": "gzip",
+      "elapsed_seconds": 546.99,
+      "peak_rss_kib": 15222528,
+      "peak_disk_growth_gib": 4.57,
+      "reference_elapsed_seconds": 4446.0,
+      "speedup_vs_cell_ranger": 8.128119344046508,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38671.0,
+        "shared": 38439.0,
+        "jaccard": 0.99387217,
+        "cell_total_r": 0.99997073,
+        "cell_profile_r": 0.99519986,
+        "gene_spearman": 0.99996163,
+        "gene_pearson": 0.99999925
+      }
+    },
+    {
+      "arm": "local_star_fastq",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "tool": "STAR Suite 1.9.5",
+      "input": "rapidgzip",
+      "elapsed_seconds": 257.38,
+      "peak_rss_kib": 17626212,
+      "peak_disk_growth_gib": 4.57,
+      "reference_elapsed_seconds": 4446.0,
+      "speedup_vs_cell_ranger": 17.274069469267232,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38671.0,
+        "shared": 38439.0,
+        "jaccard": 0.99387217,
+        "cell_total_r": 0.99997073,
+        "cell_profile_r": 0.99519986,
+        "gene_spearman": 0.99996163,
+        "gene_pearson": 0.99999925
+      }
+    },
+    {
+      "arm": "local_cyto_fastq",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "tool": "cyto 0.4.7",
+      "input": "gzip",
+      "elapsed_seconds": 325.24,
+      "peak_rss_kib": 34728088,
+      "peak_disk_growth_gib": 41.28,
+      "reference_elapsed_seconds": 4446.0,
+      "speedup_vs_cell_ranger": 13.66990530070102,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38265.0,
+        "shared": 38226.0,
+        "jaccard": 0.99332173,
+        "cell_total_r": 0.99999286,
+        "cell_profile_r": 0.99402666,
+        "gene_spearman": 0.99994086,
+        "gene_pearson": 0.99995548
+      }
+    },
+    {
+      "arm": "local_cyto_cbq",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "tool": "cyto 0.4.7",
+      "input": "CBQ",
+      "elapsed_seconds": 133.57,
+      "peak_rss_kib": 38309300,
+      "peak_disk_growth_gib": 39.16,
+      "reference_elapsed_seconds": 4446.0,
+      "speedup_vs_cell_ranger": 33.285917496443815,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38265.0,
+        "shared": 38226.0,
+        "jaccard": 0.99332173,
+        "cell_total_r": 0.99999286,
+        "cell_profile_r": 0.99402701,
+        "gene_spearman": 0.99994076,
+        "gene_pearson": 0.99995548
+      }
+    },
+    {
+      "arm": "m6id_star_fastq",
+      "dataset": "GSE325982",
+      "hardware_class": "m6id",
+      "tool": "STAR Suite 1.9.5",
+      "input": "rapidgzip",
+      "elapsed_seconds": 369.89,
+      "peak_rss_kib": 15303604,
+      "peak_disk_growth_gib": 4.56,
+      "reference_elapsed_seconds": 6615.0,
+      "speedup_vs_cell_ranger": 17.88369515261294,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38671.0,
+        "shared": 38439.0,
+        "jaccard": 0.99387217,
+        "cell_total_r": 0.99997073,
+        "cell_profile_r": 0.99519986,
+        "gene_spearman": 0.99996163,
+        "gene_pearson": 0.99999925
+      }
+    },
+    {
+      "arm": "m6id_star_cbq",
+      "dataset": "GSE325982",
+      "hardware_class": "m6id",
+      "tool": "STAR Suite 1.9.5",
+      "input": "CBQ",
+      "elapsed_seconds": 140.25,
+      "peak_rss_kib": 18654940,
+      "peak_disk_growth_gib": 4.56,
+      "reference_elapsed_seconds": 6615.0,
+      "speedup_vs_cell_ranger": 47.16577540106952,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38671.0,
+        "shared": 38439.0,
+        "jaccard": 0.99387217,
+        "cell_total_r": 0.99997073,
+        "cell_profile_r": 0.99519986,
+        "gene_spearman": 0.99996163,
+        "gene_pearson": 0.99999925
+      }
+    },
+    {
+      "arm": "m6id_cyto_fastq",
+      "dataset": "GSE325982",
+      "hardware_class": "m6id",
+      "tool": "cyto 0.4.7",
+      "input": "gzip",
+      "elapsed_seconds": 502.96,
+      "peak_rss_kib": 32922812,
+      "peak_disk_growth_gib": 38.97,
+      "reference_elapsed_seconds": 6615.0,
+      "speedup_vs_cell_ranger": 13.152139335135995,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38275.0,
+        "shared": 38234.0,
+        "jaccard": 0.99347798,
+        "cell_total_r": 0.99999286,
+        "cell_profile_r": 0.99402655,
+        "gene_spearman": 0.99994075,
+        "gene_pearson": 0.99995548
+      }
+    },
+    {
+      "arm": "m6id_cyto_cbq",
+      "dataset": "GSE325982",
+      "hardware_class": "m6id",
+      "tool": "cyto 0.4.7",
+      "input": "CBQ",
+      "elapsed_seconds": 191.07,
+      "peak_rss_kib": 38313636,
+      "peak_disk_growth_gib": 41.11,
+      "reference_elapsed_seconds": 6615.0,
+      "speedup_vs_cell_ranger": 34.62081959491286,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38292.0,
+        "shared": 38246.0,
+        "jaccard": 0.99366069,
+        "cell_total_r": 0.99999287,
+        "cell_profile_r": 0.99402553,
+        "gene_spearman": 0.99994073,
+        "gene_pearson": 0.99995549
+      }
+    },
+    {
+      "arm": "h1_star_fastq",
+      "dataset": "GSE325982",
+      "hardware_class": "h1",
+      "tool": "STAR Suite 1.9.5",
+      "input": "rapidgzip",
+      "elapsed_seconds": 384.05,
+      "peak_rss_kib": 16220464,
+      "peak_disk_growth_gib": 4.56,
+      "reference_elapsed_seconds": 7501.0,
+      "speedup_vs_cell_ranger": 19.53131102721,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38671.0,
+        "shared": 38439.0,
+        "jaccard": 0.99387217,
+        "cell_total_r": 0.99997073,
+        "cell_profile_r": 0.99519986,
+        "gene_spearman": 0.99996163,
+        "gene_pearson": 0.99999925
+      }
+    },
+    {
+      "arm": "h1_star_cbq",
+      "dataset": "GSE325982",
+      "hardware_class": "h1",
+      "tool": "STAR Suite 1.9.5",
+      "input": "CBQ",
+      "elapsed_seconds": 203.75,
+      "peak_rss_kib": 21459416,
+      "peak_disk_growth_gib": 4.56,
+      "reference_elapsed_seconds": 7501.0,
+      "speedup_vs_cell_ranger": 36.81472392638037,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38671.0,
+        "shared": 38439.0,
+        "jaccard": 0.99387217,
+        "cell_total_r": 0.99997073,
+        "cell_profile_r": 0.99519986,
+        "gene_spearman": 0.99996163,
+        "gene_pearson": 0.99999925
+      }
+    },
+    {
+      "arm": "h1_cyto_fastq",
+      "dataset": "GSE325982",
+      "hardware_class": "h1",
+      "tool": "cyto 0.4.7",
+      "input": "gzip",
+      "elapsed_seconds": 561.06,
+      "peak_rss_kib": 33387084,
+      "peak_disk_growth_gib": 44.37,
+      "reference_elapsed_seconds": 7501.0,
+      "speedup_vs_cell_ranger": 13.369336612839982,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38284.0,
+        "shared": 38239.0,
+        "jaccard": 0.99350464,
+        "cell_total_r": 0.99999287,
+        "cell_profile_r": 0.99402606,
+        "gene_spearman": 0.99994067,
+        "gene_pearson": 0.99995548
+      }
+    },
+    {
+      "arm": "h1_cyto_cbq",
+      "dataset": "GSE325982",
+      "hardware_class": "h1",
+      "tool": "cyto 0.4.7",
+      "input": "CBQ",
+      "elapsed_seconds": 469.95,
+      "peak_rss_kib": 38310656,
+      "peak_disk_growth_gib": 42.88,
+      "reference_elapsed_seconds": 7501.0,
+      "speedup_vs_cell_ranger": 15.961272475795298,
+      "validation": "validated",
+      "pooled_concordance": {
+        "cr_cells": 38444.0,
+        "star_cells": 38290.0,
+        "shared": 38241.0,
+        "jaccard": 0.99345336,
+        "cell_total_r": 0.99999287,
+        "cell_profile_r": 0.99402529,
+        "gene_spearman": 0.99994072,
+        "gene_pearson": 0.99995548
+      }
+    },
+    {
+      "arm": "local_cellranger",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "tool": "Cell Ranger 9.0.1",
+      "input": "gzip",
+      "elapsed_seconds": 4446.0,
+      "per_sample_matrix_seconds": 3668.4058322906494,
+      "peak_rss_kib": 6629952,
+      "peak_disk_growth_gib": 254.38,
+      "validation": "validated"
+    },
+    {
+      "arm": "m6id_cellranger",
+      "dataset": "GSE325982",
+      "hardware_class": "m6id",
+      "tool": "Cell Ranger 9.0.1",
+      "input": "gzip",
+      "elapsed_seconds": 6615.0,
+      "per_sample_matrix_seconds": 5863.300090789795,
+      "peak_rss_kib": 6634024,
+      "peak_disk_growth_gib": 254.32,
+      "validation": "validated"
+    },
+    {
+      "arm": "h1_cellranger",
+      "dataset": "GSE325982",
+      "hardware_class": "h1",
+      "tool": "Cell Ranger 9.0.1",
+      "input": "gzip",
+      "elapsed_seconds": 7501.0,
+      "per_sample_matrix_seconds": 6702.970787286758,
+      "peak_rss_kib": 6635280,
+      "peak_disk_growth_gib": 254.31,
+      "validation": "validated"
+    }
+  ],
+  "limitations": [
+    "Supersedes the GSE325982 rows of paper-2026-flex-v1.9.5, which used all probes; the JAX and 320k rows of that record remain its accepted measurements.",
+    "One timed execution per arm, not a replicated distribution.",
+    "Cell Ranger outputs are a comparator, not ground truth."
+  ]
+}
