@@ -1,0 +1,55 @@
+{
+  "schema": "starsuite.provenance_record/v1",
+  "record_id": "paper-2026-perturbseq-msk-v1.9.5-lineage-caller",
+  "recorded_utc": "2026-09-25T13:57:16.945218+00:00",
+  "kind": "correction",
+  "status": "complete",
+  "supersedes": [
+    "paper-2026-perturbseq-v1.9.5",
+    "paper-2026-perturbseq-msk-v1.9.5"
+  ],
+  "software": [
+    {
+      "repository": "https://github.com/morphic-bio/STAR-suite",
+      "revision": "fb9f1f4e0c380d8301041cb16ff3fd9856b62ce5",
+      "version": "1.9.5"
+    }
+  ],
+  "environment": {
+    "hardware_class": "Intel Core i9-13900KF workstation (24 cores)",
+    "memory_gb": 126,
+    "logical_cpu_count": 32,
+    "requested_threads": 32,
+    "storage": "Local NVMe for all biological inputs, reference, outputs and scratch",
+    "binary_sha256": "2ae4ed73990f81b6b44bbb8df17cd9a41adbe2c46f87aa6d5b4c0c337ee124b1"
+  },
+  "method": "MSK 30-KO ES three-library arm re-timed on 2026-09-25 with the integrated LARRY lineage caller switched on (star_feature_caller=dominant), so that gene expression, CRISPR guides and LARRY are processed and guides and lineages called in one STAR pass; this is the run the manuscript reports. Everything else is the P02 configuration: the same SHA256-identified 1.9.5 binary, staged inputs, index and feature references, 32 threads, native gzip, GeneFull only and no BAM; the rendered STAR argv is identical after path normalization and the multi-library configuration differs only in the caller column. Protocol as before: quiet host, page cache dropped first, every locus asserted on NVMe, whole-process wall time from GNU time. The quiet gate sampled live CPU (2 s) because idle resident processes from an unrelated analysis carried a high lifetime-average CPU while using none; the CPU time of every other process was recorded across the run (296 CPU-seconds in total). Cell Ranger 9.0.1 outputs and the summed two-run timing are retained.",
+  "evidence": [
+    {
+      "dataset": "MSK 30-KO ES",
+      "elapsed_seconds": 1594.27,
+      "previous_elapsed_seconds": 1625.89,
+      "reference_elapsed_seconds": 10022.22,
+      "speedup": 6.286400672408061,
+      "called_cells": 32898,
+      "reference_called_cells": 32670,
+      "cell_call_jaccard": 0.99222168,
+      "cell_count_pearson": 0.99997598,
+      "mean_cell_profile_pearson": 0.99117593,
+      "gene_count_spearman": 0.99286616,
+      "gene_count_pearson": 0.99936335,
+      "crispr_assignment_match_fraction": 0.9897079999999999,
+      "crispr_umi_pearson": 0.999448,
+      "validation": "Passed wrapper completion and output acceptance: all 28 output files shared with the caller-off P02 run are byte-identical (GeneFull matrix, CRISPR calls and ambient FDR, raw and filtered feature matrices), so the concordance values of the P02 record carry over unchanged; the LARRY calls equal those of the 2026-09-20 1.9.5 caller-on release-acceptance run row for row (order differs).",
+      "arm": "P02C",
+      "peak_rss_gib": 59.8,
+      "larry_caller": "dominant (top count greater than runner-up; a tie gives no call)"
+    }
+  ],
+  "limitations": [
+    "Supersedes the MSK row of paper-2026-perturbseq-v1.9.5 and the caller-off paper-2026-perturbseq-msk-v1.9.5 timing; the A375 row of paper-2026-perturbseq-v1.9.5 remains its accepted measurement.",
+    "One timed execution, not a replicated distribution.",
+    "The LARRY rule is the one used for the consortium's released lineage calls; matching those calls checks the integration, not the rule's accuracy.",
+    "Cell Ranger outputs are a comparator, not ground truth."
+  ]
+}

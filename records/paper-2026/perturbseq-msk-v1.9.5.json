@@ -1,0 +1,51 @@
+{
+  "schema": "starsuite.provenance_record/v1",
+  "record_id": "paper-2026-perturbseq-msk-v1.9.5",
+  "recorded_utc": "2026-09-21T14:20:36.625109+00:00",
+  "kind": "correction",
+  "status": "complete",
+  "supersedes": [
+    "paper-2026-perturbseq-v1.9.4"
+  ],
+  "software": [
+    {
+      "repository": "https://github.com/morphic-bio/STAR-suite",
+      "revision": "fb9f1f4e0c380d8301041cb16ff3fd9856b62ce5",
+      "version": "1.9.5"
+    }
+  ],
+  "environment": {
+    "hardware_class": "Intel Core i9-13900KF workstation (24 cores)",
+    "memory_gb": 126,
+    "logical_cpu_count": 32,
+    "requested_threads": 32,
+    "storage": "Local NVMe for all biological inputs, reference, outputs and scratch",
+    "binary_sha256": "2ae4ed73990f81b6b44bbb8df17cd9a41adbe2c46f87aa6d5b4c0c337ee124b1"
+  },
+  "method": "MSK 30-KO ES P02 was rerun with the corrected STAR Suite 1.9.5 source using the accepted benchmark build recipe. The three-library gene-expression, PolyIII CRISPR and LARRY command and configuration were preserved, including native gzip, GeneFull only, no BAM and no opt-in dominant LARRY caller. All reference files matched the accepted index checksums and were verified on NVMe. The run was serialized on a quiet host with the page cache dropped first. Whole-wrapper wall time includes reference loading and is measured by GNU time. Fresh canonical parity uses minimum 20 counts and detection in 1 percent of shared cells; paper gene correlations use all shared genes. Existing Cell Ranger 9.0.1 outputs and summed two-run timing are retained.",
+  "evidence": [
+    {
+      "dataset": "MSK 30-KO ES",
+      "elapsed_seconds": 1625.89,
+      "previous_elapsed_seconds": 1718.72,
+      "reference_elapsed_seconds": 10022.22,
+      "speedup": 6.164143945777389,
+      "called_cells": 32898,
+      "reference_called_cells": 32670,
+      "cell_call_jaccard": 0.99222168,
+      "cell_count_pearson": 0.99997598,
+      "mean_cell_profile_pearson": 0.99117593,
+      "gene_count_spearman": 0.99286616,
+      "gene_count_pearson": 0.99936335,
+      "crispr_assignment_match_fraction": 0.9897079999999999,
+      "crispr_umi_pearson": 0.999448,
+      "validation": "Passed wrapper completion, matching timing boundary and all 22 required parity/concordance gates"
+    }
+  ],
+  "limitations": [
+    "This scoped correction supersedes the MSK row only; the A375 row in the previous record remains its accepted measurement.",
+    "One timed execution, not a replicated distribution. Other local and cloud arms were not rerun in this scoped session.",
+    "The separate dominant-LARRY release-acceptance run is output-validation evidence and is not used for paper timing.",
+    "Cell Ranger outputs are a comparator, not ground truth."
+  ]
+}

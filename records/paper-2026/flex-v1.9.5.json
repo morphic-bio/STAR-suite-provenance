@@ -1,0 +1,1302 @@
+{
+  "schema": "starsuite.provenance_record/v1",
+  "record_id": "paper-2026-flex-v1.9.5",
+  "recorded_utc": "2026-09-22T01:29:41.589414+00:00",
+  "kind": "correction",
+  "status": "complete",
+  "supersedes": [
+    "paper-2026-flex-v1.9.4"
+  ],
+  "software": [
+    {
+      "repository": "https://github.com/morphic-bio/STAR-suite",
+      "revision": "fb9f1f4e0c380d8301041cb16ff3fd9856b62ce5",
+      "version": "1.9.5"
+    }
+  ],
+  "environment": {
+    "local_workstation": {
+      "hardware_class": "Intel Core i9-13900KF workstation",
+      "physical_memory_gib": 128,
+      "os_usable_memtotal_kib": 131707456,
+      "logical_cpu_count": 32,
+      "requested_threads": 32,
+      "storage": "Local NVMe for all biological inputs, references, outputs and scratch",
+      "binary_sha256": "2ae4ed73990f81b6b44bbb8df17cd9a41adbe2c46f87aa6d5b4c0c337ee124b1"
+    },
+    "cloud_resource_target": {
+      "logical_cpu_count": 32,
+      "requested_threads": 32,
+      "memory_limit_gib": 128,
+      "swap_limit_bytes": 0
+    },
+    "cloud_hosts": [
+      {
+        "instance_type": "m6id.16xlarge",
+        "storage": "Two local NVMe devices in RAID0",
+        "os_usable_memtotal_kib": 131856164
+      },
+      {
+        "instance_type": "h1.8xlarge",
+        "storage": "Four local HDD devices in fully initialized RAID5",
+        "os_usable_memtotal_kib": 131856200
+      }
+    ],
+    "binary_sha256": "2ae4ed73990f81b6b44bbb8df17cd9a41adbe2c46f87aa6d5b4c0c337ee124b1",
+    "actual_prior_cloud_binary_sha256": "9eaf7e0a4e58da70d9c56695c24cc0599e19a3efb7b6a51b24e1213aac8e72f3"
+  },
+  "method": "Alignment-free half-probe hashing and tag-aware cell calling, using the accepted RAM bucket mode and full 32-thread permit budget. JAX and GSE325982 local reader variants and all six delivered-FASTQ/CBQ arms on each cloud storage class are included. CBQ preparation is excluded. Bootstrap stream settings are preserved. A multiplexed cell remains the barcode plus sample tag; pooled cell concordance and sample means are distinct, and off-target JAX tags remain in the all-tag call-set comparison. Local walls are GNU time driver intervals; cloud walls use the accepted measurement wrapper through process exit, with GNU time separately retained. The corrected 1.9.5 tag was built with the accepted benchmark recipe and one SHA256-identified binary was used everywhere. Scientific arguments, input formats, reference content, hash caches, and caller settings were preserved. Each arm ran once on a quiet host, with fresh outputs and a fatal cold-cache preflight. All input, reference, output, temporary and spill locations were checked against the intended storage. Comparator outputs and times were retained; no comparator was rerun. Completion, executed-command identity, the 1.30 maximum timing ratio, and canonical correlation/cell-call tolerances were checked before scheduling the next arm. Byte equality is a recorded diagnostic rather than an acceptance gate. Untimed cloud concordance calculations are reused only when all matrix components, method code and validation dependency versions have identical checksums; changed inputs compute fresh metrics. Each arm retains its own report and every numeric gate.",
+  "evidence": [
+    {
+      "arm": "F02",
+      "dataset": "JAX",
+      "hardware_class": "local workstation",
+      "input": "CBQ",
+      "elapsed_seconds": 169.77,
+      "previous_elapsed_seconds": 169.63,
+      "driver_elapsed_seconds": 169.77,
+      "previous_driver_elapsed_seconds": 169.63,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 54,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 3426.06,
+      "speedup": 20.18059727867114,
+      "concordance": [
+        {
+          "dataset": "JAX",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98738747,
+          "cell_total_r": 0.99998522,
+          "cell_profile_r": 0.99858011,
+          "cell_profile_r_median": 0.99866982,
+          "cell_profile_rho": 0.99872937,
+          "profile_cells": 20415,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99996426,
+          "gene_pearson": 0.99999924
+        },
+        {
+          "dataset": "JAX",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98809351,
+          "cell_total_r": 0.99998534,
+          "cell_profile_r": 0.99860591,
+          "cell_profile_r_median": 0.99874058,
+          "cell_profile_rho": 0.99875219,
+          "profile_cells": 20415,
+          "profile_genes": 13126,
+          "genes": 18129,
+          "gene_spearman": 0.99997456,
+          "gene_pearson": 0.99999969
+        }
+      ]
+    },
+    {
+      "arm": "F01",
+      "dataset": "JAX",
+      "hardware_class": "local workstation",
+      "input": "BGZF",
+      "elapsed_seconds": 199.77,
+      "previous_elapsed_seconds": 199.43,
+      "driver_elapsed_seconds": 199.77,
+      "previous_driver_elapsed_seconds": 199.43,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 54,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 3426.06,
+      "speedup": 17.150022525904788,
+      "concordance": [
+        {
+          "dataset": "JAX",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98738747,
+          "cell_total_r": 0.99998522,
+          "cell_profile_r": 0.99858011,
+          "cell_profile_r_median": 0.99866982,
+          "cell_profile_rho": 0.99872937,
+          "profile_cells": 20415,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99996426,
+          "gene_pearson": 0.99999924
+        },
+        {
+          "dataset": "JAX",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98809351,
+          "cell_total_r": 0.99998534,
+          "cell_profile_r": 0.99860591,
+          "cell_profile_r_median": 0.99874058,
+          "cell_profile_rho": 0.99875219,
+          "profile_cells": 20415,
+          "profile_genes": 13126,
+          "genes": 18129,
+          "gene_spearman": 0.99997456,
+          "gene_pearson": 0.99999969
+        }
+      ]
+    },
+    {
+      "arm": "F04",
+      "dataset": "JAX",
+      "hardware_class": "local workstation",
+      "input": "serial gzip",
+      "elapsed_seconds": 219.41,
+      "previous_elapsed_seconds": 219.27,
+      "driver_elapsed_seconds": 219.41,
+      "previous_driver_elapsed_seconds": 219.27,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 54,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 3426.06,
+      "speedup": 15.614876259058384,
+      "concordance": [
+        {
+          "dataset": "JAX",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98738747,
+          "cell_total_r": 0.99998522,
+          "cell_profile_r": 0.99858011,
+          "cell_profile_r_median": 0.99866982,
+          "cell_profile_rho": 0.99872937,
+          "profile_cells": 20415,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99996426,
+          "gene_pearson": 0.99999924
+        },
+        {
+          "dataset": "JAX",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98809351,
+          "cell_total_r": 0.99998534,
+          "cell_profile_r": 0.99860591,
+          "cell_profile_r_median": 0.99874058,
+          "cell_profile_rho": 0.99875219,
+          "profile_cells": 20415,
+          "profile_genes": 13126,
+          "genes": 18129,
+          "gene_spearman": 0.99997456,
+          "gene_pearson": 0.99999969
+        }
+      ]
+    },
+    {
+      "arm": "F05",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "input": "CBQ",
+      "elapsed_seconds": 107.45,
+      "previous_elapsed_seconds": 107.29,
+      "driver_elapsed_seconds": 107.45,
+      "previous_driver_elapsed_seconds": 107.29,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 54,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 4485,
+      "speedup": 41.740344346207536,
+      "concordance": [
+        {
+          "dataset": "GSE325982",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99437141,
+          "cell_total_r": 0.99997121,
+          "cell_profile_r": 0.99516701,
+          "cell_profile_r_median": 0.99558561,
+          "cell_profile_rho": 0.99304926,
+          "profile_cells": 38431,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99990687,
+          "gene_pearson": 0.99999911
+        },
+        {
+          "dataset": "GSE325982",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99441095,
+          "cell_total_r": 0.99997071,
+          "cell_profile_r": 0.99519544,
+          "cell_profile_r_median": 0.99560707,
+          "cell_profile_rho": 0.99309516,
+          "profile_cells": 38431,
+          "profile_genes": 11919,
+          "genes": 18488,
+          "gene_spearman": 0.99995798,
+          "gene_pearson": 0.99999925
+        }
+      ]
+    },
+    {
+      "arm": "F06",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "input": "zcat",
+      "elapsed_seconds": 557.1,
+      "previous_elapsed_seconds": 546.71,
+      "driver_elapsed_seconds": 557.1,
+      "previous_driver_elapsed_seconds": 546.71,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 54,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 4485,
+      "speedup": 8.050619278406032,
+      "concordance": [
+        {
+          "dataset": "GSE325982",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99437141,
+          "cell_total_r": 0.99997121,
+          "cell_profile_r": 0.99516701,
+          "cell_profile_r_median": 0.99558561,
+          "cell_profile_rho": 0.99304926,
+          "profile_cells": 38431,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99990687,
+          "gene_pearson": 0.99999911
+        },
+        {
+          "dataset": "GSE325982",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99441095,
+          "cell_total_r": 0.99997071,
+          "cell_profile_r": 0.99519544,
+          "cell_profile_r_median": 0.99560707,
+          "cell_profile_rho": 0.99309516,
+          "profile_cells": 38431,
+          "profile_genes": 11919,
+          "genes": 18488,
+          "gene_spearman": 0.99995798,
+          "gene_pearson": 0.99999925
+        }
+      ]
+    },
+    {
+      "arm": "F07",
+      "dataset": "GSE325982",
+      "hardware_class": "local workstation",
+      "input": "rapidgzip",
+      "elapsed_seconds": 257.61,
+      "previous_elapsed_seconds": 267.73,
+      "driver_elapsed_seconds": 257.61,
+      "previous_driver_elapsed_seconds": 267.73,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 54,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 4485,
+      "speedup": 17.410038430185164,
+      "concordance": [
+        {
+          "dataset": "GSE325982",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99437141,
+          "cell_total_r": 0.99997121,
+          "cell_profile_r": 0.99516701,
+          "cell_profile_r_median": 0.99558561,
+          "cell_profile_rho": 0.99304926,
+          "profile_cells": 38431,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99990687,
+          "gene_pearson": 0.99999911
+        },
+        {
+          "dataset": "GSE325982",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99441095,
+          "cell_total_r": 0.99997071,
+          "cell_profile_r": 0.99519544,
+          "cell_profile_r_median": 0.99560707,
+          "cell_profile_rho": 0.99309516,
+          "profile_cells": 38431,
+          "profile_genes": 11919,
+          "genes": 18488,
+          "gene_spearman": 0.99995798,
+          "gene_pearson": 0.99999925
+        }
+      ]
+    },
+    {
+      "arm": "m6id_gse325982_fastq",
+      "dataset": "gse325982",
+      "hardware_class": "m6id",
+      "input": "fastq",
+      "elapsed_seconds": 367.29081995399974,
+      "previous_elapsed_seconds": 406.847486906001,
+      "driver_elapsed_seconds": 367.29081995399974,
+      "previous_driver_elapsed_seconds": 406.847486906001,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 50,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 6587.095575002,
+      "speedup": 17.934277736173698,
+      "concordance": [
+        {
+          "dataset": "gse325982",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99437141,
+          "cell_total_r": 0.99997121,
+          "cell_profile_r": 0.99516701,
+          "cell_profile_r_median": 0.99558561,
+          "cell_profile_rho": 0.99304926,
+          "profile_cells": 38431,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99990687,
+          "gene_pearson": 0.99999911
+        },
+        {
+          "dataset": "gse325982",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99441095,
+          "cell_total_r": 0.99997071,
+          "cell_profile_r": 0.99519544,
+          "cell_profile_r_median": 0.99560707,
+          "cell_profile_rho": 0.99309516,
+          "profile_cells": 38431,
+          "profile_genes": 11919,
+          "genes": 18488,
+          "gene_spearman": 0.99995798,
+          "gene_pearson": 0.99999925
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856164,
+      "called_cells_all_tags": 38634,
+      "reference_called_cells": 38444,
+      "called_cells_in_reference_samples": 38634,
+      "all_tag_cell_call_jaccard": 0.9944109503971847
+    },
+    {
+      "arm": "m6id_gse325982_cbq",
+      "dataset": "gse325982",
+      "hardware_class": "m6id",
+      "input": "cbq",
+      "elapsed_seconds": 137.25405462299932,
+      "previous_elapsed_seconds": 137.60196377800457,
+      "driver_elapsed_seconds": 137.25405462299932,
+      "previous_driver_elapsed_seconds": 137.60196377800457,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 50,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 6587.095575002,
+      "speedup": 47.99199260885235,
+      "concordance": [
+        {
+          "dataset": "gse325982",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99437141,
+          "cell_total_r": 0.99997121,
+          "cell_profile_r": 0.99516701,
+          "cell_profile_r_median": 0.99558561,
+          "cell_profile_rho": 0.99304926,
+          "profile_cells": 38431,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99990687,
+          "gene_pearson": 0.99999911
+        },
+        {
+          "dataset": "gse325982",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99441095,
+          "cell_total_r": 0.99997071,
+          "cell_profile_r": 0.99519544,
+          "cell_profile_r_median": 0.99560707,
+          "cell_profile_rho": 0.99309516,
+          "profile_cells": 38431,
+          "profile_genes": 11919,
+          "genes": 18488,
+          "gene_spearman": 0.99995798,
+          "gene_pearson": 0.99999925
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856164,
+      "called_cells_all_tags": 38634,
+      "reference_called_cells": 38444,
+      "called_cells_in_reference_samples": 38634,
+      "all_tag_cell_call_jaccard": 0.9944109503971847
+    },
+    {
+      "arm": "m6id_jax_fastq",
+      "dataset": "jax",
+      "hardware_class": "m6id",
+      "input": "fastq",
+      "elapsed_seconds": 314.1266015909996,
+      "previous_elapsed_seconds": 314.12376391999715,
+      "driver_elapsed_seconds": 314.1266015909996,
+      "previous_driver_elapsed_seconds": 314.12376391999715,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 50,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 5039.964377410999,
+      "speedup": 16.044373039037154,
+      "concordance": [
+        {
+          "dataset": "jax",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98738747,
+          "cell_total_r": 0.99998522,
+          "cell_profile_r": 0.99858011,
+          "cell_profile_r_median": 0.99866982,
+          "cell_profile_rho": 0.99872937,
+          "profile_cells": 20415,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99996426,
+          "gene_pearson": 0.99999924
+        },
+        {
+          "dataset": "jax",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98809351,
+          "cell_total_r": 0.99998534,
+          "cell_profile_r": 0.99860591,
+          "cell_profile_r_median": 0.99874058,
+          "cell_profile_rho": 0.99875219,
+          "profile_cells": 20415,
+          "profile_genes": 13126,
+          "genes": 18129,
+          "gene_spearman": 0.99997456,
+          "gene_pearson": 0.99999969
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856164,
+      "called_cells_all_tags": 20659,
+      "reference_called_cells": 20419,
+      "called_cells_in_reference_samples": 20657,
+      "all_tag_cell_call_jaccard": 0.9879978705899434
+    },
+    {
+      "arm": "m6id_jax_cbq",
+      "dataset": "jax",
+      "hardware_class": "m6id",
+      "input": "cbq",
+      "elapsed_seconds": 203.91672251700038,
+      "previous_elapsed_seconds": 204.17267833500227,
+      "driver_elapsed_seconds": 203.91672251700038,
+      "previous_driver_elapsed_seconds": 204.17267833500227,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 50,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 5039.964377410999,
+      "speedup": 24.715797288232803,
+      "concordance": [
+        {
+          "dataset": "jax",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98738747,
+          "cell_total_r": 0.99998522,
+          "cell_profile_r": 0.99858011,
+          "cell_profile_r_median": 0.99866982,
+          "cell_profile_rho": 0.99872937,
+          "profile_cells": 20415,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99996426,
+          "gene_pearson": 0.99999924
+        },
+        {
+          "dataset": "jax",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98809351,
+          "cell_total_r": 0.99998534,
+          "cell_profile_r": 0.99860591,
+          "cell_profile_r_median": 0.99874058,
+          "cell_profile_rho": 0.99875219,
+          "profile_cells": 20415,
+          "profile_genes": 13126,
+          "genes": 18129,
+          "gene_spearman": 0.99997456,
+          "gene_pearson": 0.99999969
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856164,
+      "called_cells_all_tags": 20659,
+      "reference_called_cells": 20419,
+      "called_cells_in_reference_samples": 20657,
+      "all_tag_cell_call_jaccard": 0.9879978705899434
+    },
+    {
+      "arm": "m6id_320k_fastq",
+      "dataset": "320k",
+      "hardware_class": "m6id",
+      "input": "fastq",
+      "elapsed_seconds": 1055.9055772719994,
+      "previous_elapsed_seconds": 1045.183115572996,
+      "driver_elapsed_seconds": 1055.9055772719994,
+      "previous_driver_elapsed_seconds": 1045.183115572996,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 78,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 23858.497197476998,
+      "speedup": 22.595294229922505,
+      "concordance": [
+        {
+          "dataset": "320k",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 325410,
+          "star_cells": 333411,
+          "shared": 325036,
+          "jaccard": 0.97213978,
+          "cell_total_r": 0.99998919,
+          "cell_profile_r": 0.99906475,
+          "cell_profile_r_median": 0.99914746,
+          "cell_profile_rho": 0.99929207,
+          "profile_cells": 325036,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99998202,
+          "gene_pearson": 0.99999919
+        },
+        {
+          "dataset": "320k",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 325410,
+          "star_cells": 333411,
+          "shared": 325036,
+          "jaccard": 0.97378852,
+          "cell_total_r": 0.99998027,
+          "cell_profile_r": 0.99904283,
+          "cell_profile_r_median": 0.99913002,
+          "cell_profile_rho": 0.9992353,
+          "profile_cells": 325036,
+          "profile_genes": 13815,
+          "genes": 18129,
+          "gene_spearman": 0.99999969,
+          "gene_pearson": 0.99999965
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856164,
+      "called_cells_all_tags": 333411,
+      "reference_called_cells": 325410,
+      "called_cells_in_reference_samples": 333411,
+      "all_tag_cell_call_jaccard": 0.9737885165600612
+    },
+    {
+      "arm": "m6id_320k_cbq",
+      "dataset": "320k",
+      "hardware_class": "m6id",
+      "input": "cbq",
+      "elapsed_seconds": 645.1989420289992,
+      "previous_elapsed_seconds": 645.4678338839949,
+      "driver_elapsed_seconds": 645.1989420289992,
+      "previous_driver_elapsed_seconds": 645.4678338839949,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 78,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 23858.497197476998,
+      "speedup": 36.97851258473491,
+      "concordance": [
+        {
+          "dataset": "320k",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 325410,
+          "star_cells": 333411,
+          "shared": 325036,
+          "jaccard": 0.97213978,
+          "cell_total_r": 0.99998919,
+          "cell_profile_r": 0.99906475,
+          "cell_profile_r_median": 0.99914746,
+          "cell_profile_rho": 0.99929207,
+          "profile_cells": 325036,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99998202,
+          "gene_pearson": 0.99999919
+        },
+        {
+          "dataset": "320k",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 325410,
+          "star_cells": 333411,
+          "shared": 325036,
+          "jaccard": 0.97378852,
+          "cell_total_r": 0.99998027,
+          "cell_profile_r": 0.99904283,
+          "cell_profile_r_median": 0.99913002,
+          "cell_profile_rho": 0.9992353,
+          "profile_cells": 325036,
+          "profile_genes": 13815,
+          "genes": 18129,
+          "gene_spearman": 0.99999969,
+          "gene_pearson": 0.99999965
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856164,
+      "called_cells_all_tags": 333411,
+      "reference_called_cells": 325410,
+      "called_cells_in_reference_samples": 333411,
+      "all_tag_cell_call_jaccard": 0.9737885165600612
+    },
+    {
+      "arm": "h1_gse325982_fastq",
+      "dataset": "gse325982",
+      "hardware_class": "h1",
+      "input": "fastq",
+      "elapsed_seconds": 370.34176331200433,
+      "previous_elapsed_seconds": 399.8411963870021,
+      "driver_elapsed_seconds": 370.34176331200433,
+      "previous_driver_elapsed_seconds": 399.8411963870021,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 50,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 7331.974254728001,
+      "speedup": 19.797859655787683,
+      "concordance": [
+        {
+          "dataset": "gse325982",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99437141,
+          "cell_total_r": 0.99997121,
+          "cell_profile_r": 0.99516701,
+          "cell_profile_r_median": 0.99558561,
+          "cell_profile_rho": 0.99304926,
+          "profile_cells": 38431,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99990687,
+          "gene_pearson": 0.99999911
+        },
+        {
+          "dataset": "gse325982",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99441095,
+          "cell_total_r": 0.99997071,
+          "cell_profile_r": 0.99519544,
+          "cell_profile_r_median": 0.99560707,
+          "cell_profile_rho": 0.99309516,
+          "profile_cells": 38431,
+          "profile_genes": 11919,
+          "genes": 18488,
+          "gene_spearman": 0.99995798,
+          "gene_pearson": 0.99999925
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856200,
+      "called_cells_all_tags": 38634,
+      "reference_called_cells": 38444,
+      "called_cells_in_reference_samples": 38634,
+      "all_tag_cell_call_jaccard": 0.9944109503971847
+    },
+    {
+      "arm": "h1_gse325982_cbq",
+      "dataset": "gse325982",
+      "hardware_class": "h1",
+      "input": "cbq",
+      "elapsed_seconds": 200.6933710309968,
+      "previous_elapsed_seconds": 199.46161794899672,
+      "driver_elapsed_seconds": 200.6933710309968,
+      "previous_driver_elapsed_seconds": 199.46161794899672,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 50,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 7331.974254728001,
+      "speedup": 36.53321590574902,
+      "concordance": [
+        {
+          "dataset": "gse325982",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99437141,
+          "cell_total_r": 0.99997121,
+          "cell_profile_r": 0.99516701,
+          "cell_profile_r_median": 0.99558561,
+          "cell_profile_rho": 0.99304926,
+          "profile_cells": 38431,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99990687,
+          "gene_pearson": 0.99999911
+        },
+        {
+          "dataset": "gse325982",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 38444,
+          "star_cells": 38634,
+          "shared": 38431,
+          "jaccard": 0.99441095,
+          "cell_total_r": 0.99997071,
+          "cell_profile_r": 0.99519544,
+          "cell_profile_r_median": 0.99560707,
+          "cell_profile_rho": 0.99309516,
+          "profile_cells": 38431,
+          "profile_genes": 11919,
+          "genes": 18488,
+          "gene_spearman": 0.99995798,
+          "gene_pearson": 0.99999925
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856200,
+      "called_cells_all_tags": 38634,
+      "reference_called_cells": 38444,
+      "called_cells_in_reference_samples": 38634,
+      "all_tag_cell_call_jaccard": 0.9944109503971847
+    },
+    {
+      "arm": "h1_jax_fastq",
+      "dataset": "jax",
+      "hardware_class": "h1",
+      "input": "fastq",
+      "elapsed_seconds": 587.126291073997,
+      "previous_elapsed_seconds": 586.0572436490038,
+      "driver_elapsed_seconds": 587.126291073997,
+      "previous_driver_elapsed_seconds": 586.0572436490038,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 50,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 6890.017828774999,
+      "speedup": 11.735154656711893,
+      "concordance": [
+        {
+          "dataset": "jax",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98738747,
+          "cell_total_r": 0.99998522,
+          "cell_profile_r": 0.99858011,
+          "cell_profile_r_median": 0.99866982,
+          "cell_profile_rho": 0.99872937,
+          "profile_cells": 20415,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99996426,
+          "gene_pearson": 0.99999924
+        },
+        {
+          "dataset": "jax",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98809351,
+          "cell_total_r": 0.99998534,
+          "cell_profile_r": 0.99860591,
+          "cell_profile_r_median": 0.99874058,
+          "cell_profile_rho": 0.99875219,
+          "profile_cells": 20415,
+          "profile_genes": 13126,
+          "genes": 18129,
+          "gene_spearman": 0.99997456,
+          "gene_pearson": 0.99999969
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856200,
+      "called_cells_all_tags": 20659,
+      "reference_called_cells": 20419,
+      "called_cells_in_reference_samples": 20657,
+      "all_tag_cell_call_jaccard": 0.9879978705899434
+    },
+    {
+      "arm": "h1_jax_cbq",
+      "dataset": "jax",
+      "hardware_class": "h1",
+      "input": "cbq",
+      "elapsed_seconds": 436.9559028220028,
+      "previous_elapsed_seconds": 435.79562459098815,
+      "driver_elapsed_seconds": 436.9559028220028,
+      "previous_driver_elapsed_seconds": 435.79562459098815,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 50,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 6890.017828774999,
+      "speedup": 15.76822234069166,
+      "concordance": [
+        {
+          "dataset": "jax",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98738747,
+          "cell_total_r": 0.99998522,
+          "cell_profile_r": 0.99858011,
+          "cell_profile_r_median": 0.99866982,
+          "cell_profile_rho": 0.99872937,
+          "profile_cells": 20415,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99996426,
+          "gene_pearson": 0.99999924
+        },
+        {
+          "dataset": "jax",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 20419,
+          "star_cells": 20657,
+          "shared": 20415,
+          "jaccard": 0.98809351,
+          "cell_total_r": 0.99998534,
+          "cell_profile_r": 0.99860591,
+          "cell_profile_r_median": 0.99874058,
+          "cell_profile_rho": 0.99875219,
+          "profile_cells": 20415,
+          "profile_genes": 13126,
+          "genes": 18129,
+          "gene_spearman": 0.99997456,
+          "gene_pearson": 0.99999969
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856200,
+      "called_cells_all_tags": 20659,
+      "reference_called_cells": 20419,
+      "called_cells_in_reference_samples": 20657,
+      "all_tag_cell_call_jaccard": 0.9879978705899434
+    },
+    {
+      "arm": "h1_320k_fastq",
+      "dataset": "320k",
+      "hardware_class": "h1",
+      "input": "fastq",
+      "elapsed_seconds": 1804.5229610940005,
+      "previous_elapsed_seconds": 1801.979289928,
+      "driver_elapsed_seconds": 1804.5229610940005,
+      "previous_driver_elapsed_seconds": 1801.979289928,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 78,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 32411.075228573005,
+      "speedup": 17.961021237947364,
+      "concordance": [
+        {
+          "dataset": "320k",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 325410,
+          "star_cells": 333411,
+          "shared": 325036,
+          "jaccard": 0.97213978,
+          "cell_total_r": 0.99998919,
+          "cell_profile_r": 0.99906475,
+          "cell_profile_r_median": 0.99914746,
+          "cell_profile_rho": 0.99929207,
+          "profile_cells": 325036,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99998202,
+          "gene_pearson": 0.99999919
+        },
+        {
+          "dataset": "320k",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 325410,
+          "star_cells": 333411,
+          "shared": 325036,
+          "jaccard": 0.97378852,
+          "cell_total_r": 0.99998027,
+          "cell_profile_r": 0.99904283,
+          "cell_profile_r_median": 0.99913002,
+          "cell_profile_rho": 0.9992353,
+          "profile_cells": 325036,
+          "profile_genes": 13815,
+          "genes": 18129,
+          "gene_spearman": 0.99999969,
+          "gene_pearson": 0.99999965
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856200,
+      "called_cells_all_tags": 333411,
+      "reference_called_cells": 325410,
+      "called_cells_in_reference_samples": 333411,
+      "all_tag_cell_call_jaccard": 0.9737885165600612
+    },
+    {
+      "arm": "h1_320k_cbq",
+      "dataset": "320k",
+      "hardware_class": "h1",
+      "input": "cbq",
+      "elapsed_seconds": 1216.8427060660033,
+      "previous_elapsed_seconds": 1211.227907567998,
+      "driver_elapsed_seconds": 1216.8427060660033,
+      "previous_driver_elapsed_seconds": 1211.227907567998,
+      "validation": {
+        "status": "passed",
+        "parity_gates": 78,
+        "maximum_wall_ratio": 1.3
+      },
+      "reference_elapsed_seconds": 32411.075228573005,
+      "speedup": 26.63538604209292,
+      "concordance": [
+        {
+          "dataset": "320k",
+          "level": "per-sample",
+          "sample": "MEAN",
+          "cr_cells": 325410,
+          "star_cells": 333411,
+          "shared": 325036,
+          "jaccard": 0.97213978,
+          "cell_total_r": 0.99998919,
+          "cell_profile_r": 0.99906475,
+          "cell_profile_r_median": 0.99914746,
+          "cell_profile_rho": 0.99929207,
+          "profile_cells": 325036,
+          "profile_genes": null,
+          "genes": null,
+          "gene_spearman": 0.99998202,
+          "gene_pearson": 0.99999919
+        },
+        {
+          "dataset": "320k",
+          "level": "pooled",
+          "sample": "ALL",
+          "cr_cells": 325410,
+          "star_cells": 333411,
+          "shared": 325036,
+          "jaccard": 0.97378852,
+          "cell_total_r": 0.99998027,
+          "cell_profile_r": 0.99904283,
+          "cell_profile_r_median": 0.99913002,
+          "cell_profile_rho": 0.9992353,
+          "profile_cells": 325036,
+          "profile_genes": 13815,
+          "genes": 18129,
+          "gene_spearman": 0.99999969,
+          "gene_pearson": 0.99999965
+        }
+      ],
+      "observed_guest_memtotal_kib": 131856200,
+      "called_cells_all_tags": 333411,
+      "reference_called_cells": 325410,
+      "called_cells_in_reference_samples": 333411,
+      "all_tag_cell_call_jaccard": 0.9737885165600612
+    }
+  ],
+  "limitations": [
+    "One timed execution per arm, not a replicated distribution.",
+    "Retained comparator outputs are comparison evidence rather than ground truth.",
+    "Wall times depend on the recorded CPU, storage and cache conditions.",
+    "The two cloud instance types have different processor generations; the retained compute-only control is not rerun.",
+    "The matched cloud archives contain 333411 cells at 32 bootstrap threads. The runbook initially quoted 333439 from an earlier 48-thread panel; the archived commands and matrices establish the corrected baseline, independently of local outputs."
+  ],
+  "artifacts": [
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F02/RESULT.json",
+      "sha256": "f6f97837bcc8e1617ec51db0d459dc07235e647c5fc80b440e78e1d41bb84f98"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F02/PARITY_GATES.json",
+      "sha256": "b101ebc1d067e78f1b5153eacf65b3494c35c84b437bb1251631aed4f4e3bacd"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F01/RESULT.json",
+      "sha256": "19294b27e6f3946119046fac084138852104f2b5d4c7ea808513958d2407625b"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F01/PARITY_GATES.json",
+      "sha256": "b101ebc1d067e78f1b5153eacf65b3494c35c84b437bb1251631aed4f4e3bacd"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F04/RESULT.json",
+      "sha256": "a9b271cfa1d480b5b5684caf2f9d3475bd2a7d07d5c4c49f99276345597a84cd"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F04/PARITY_GATES.json",
+      "sha256": "b101ebc1d067e78f1b5153eacf65b3494c35c84b437bb1251631aed4f4e3bacd"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F05/RESULT.json",
+      "sha256": "1b49899b789c2f5a2c720fea876e3b9ed48e5dea07e6d1a44eb556caf4ce6f60"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F05/PARITY_GATES.json",
+      "sha256": "524759dc191605b0ea594bae174bed0ee37028af5e42f8a961d76f228c7c633d"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F06/RESULT.json",
+      "sha256": "334c521222b6e8c86aaf4e797480771a0a7c5d0fc4cfa8b380376d685a9f1076"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F06/PARITY_GATES.json",
+      "sha256": "524759dc191605b0ea594bae174bed0ee37028af5e42f8a961d76f228c7c633d"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F07/RESULT.json",
+      "sha256": "35e4552458ecdb8e68c20da5829defddc58d6fbaebc64a9b6996f17c64668512"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/F07/PARITY_GATES.json",
+      "sha256": "524759dc191605b0ea594bae174bed0ee37028af5e42f8a961d76f228c7c633d"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_gse325982_fastq/RESULT.json",
+      "sha256": "2214da57e69e36981b4b7f0d8f990a26dd5572bf646890033642643b5c50a559"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_gse325982_fastq/PARITY_GATES.json",
+      "sha256": "35a55680f9571ec30619ebc0ce888f72887a3242f14a510f1039b6776aa46a65"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_gse325982_fastq/PREFLIGHT.json",
+      "sha256": "ca91e6343c35ac54f23204b619caa9d5e9277c1601ff9efc86cf8ee85a88b58f"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_gse325982_cbq/RESULT.json",
+      "sha256": "1ead6af7822a0778c4843621bad245fcecfa3522434ecc6d7194455774aa0ace"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_gse325982_cbq/PARITY_GATES.json",
+      "sha256": "35a55680f9571ec30619ebc0ce888f72887a3242f14a510f1039b6776aa46a65"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_gse325982_cbq/PREFLIGHT.json",
+      "sha256": "318c3fe428b02ec5a89a2bda48f59a11ecf27de49b8fd04adf19b836308cc510"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_jax_fastq/RESULT.json",
+      "sha256": "873802db19eac84484029168eca18a4f1c18d100557915f0d64ebcf8dc7a91ab"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_jax_fastq/PARITY_GATES.json",
+      "sha256": "b201ca60bfbe5d42e04ce1f21b202f421a0e8f4069291bc570dec8f813bf197b"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_jax_fastq/PREFLIGHT.json",
+      "sha256": "1811242a8e65ae60cb5f4ebed3d971c3949dc18e7da158136bd799b46898fc54"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_jax_cbq/RESULT.json",
+      "sha256": "edf7f9330f1ba75e938dd7d60fdd5935fb362ae88c83bc1846bc19c7d4a3d924"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_jax_cbq/PARITY_GATES.json",
+      "sha256": "b201ca60bfbe5d42e04ce1f21b202f421a0e8f4069291bc570dec8f813bf197b"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_jax_cbq/PREFLIGHT.json",
+      "sha256": "36a474130a99610c1ae6ce65e8832f9129fcb672f18a467d6fc6c8c7da12b1e6"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_320k_fastq/RESULT.json",
+      "sha256": "935c951e76e3caa17bd01fcf16c1d2077ada5c1a3069b662a6a04ec22a65a350"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_320k_fastq/PARITY_GATES.json",
+      "sha256": "b0f0acb7bd0992bde24173635be58b343c555910536b44fcc4800f8dc225039d"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_320k_fastq/PREFLIGHT.json",
+      "sha256": "d685bfa0562af38326494b3ff65c585a22479b79ff0b22c5a2f54432ad19f8a9"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_320k_cbq/RESULT.json",
+      "sha256": "4d2bc657f4dbc94e7367f3f9324e0a6ec65887d0777360f7525ab8faa6428c5d"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_320k_cbq/PARITY_GATES.json",
+      "sha256": "b0f0acb7bd0992bde24173635be58b343c555910536b44fcc4800f8dc225039d"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/m6id_320k_cbq/PREFLIGHT.json",
+      "sha256": "e79ddfa945ed4913c237a7c87a865408b9444b4bda70730eaadb7c9209af96df"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_gse325982_fastq/RESULT.json",
+      "sha256": "f0332054177b08b318e902466bc4e09afe7a9d99d3477ac21fdc349af612a73c"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_gse325982_fastq/PARITY_GATES.json",
+      "sha256": "35a55680f9571ec30619ebc0ce888f72887a3242f14a510f1039b6776aa46a65"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_gse325982_fastq/PREFLIGHT.json",
+      "sha256": "17d22a105acb1345abff97b0f6490a9021b6571cf8edd19b86c3c623f0e59917"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_gse325982_cbq/RESULT.json",
+      "sha256": "1a3a393fa00865692ee2a0d76fc6a6e157692c607db46e4e7d10a589a7e595fc"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_gse325982_cbq/PARITY_GATES.json",
+      "sha256": "35a55680f9571ec30619ebc0ce888f72887a3242f14a510f1039b6776aa46a65"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_gse325982_cbq/PREFLIGHT.json",
+      "sha256": "ace841b8369e6ab93e4662522e034846a1404562582fcac88561ed93a45e9c76"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_jax_fastq/RESULT.json",
+      "sha256": "a1e72260b1bc0fe87e41f762266741f5164e8ef8cffa31362172845d4707777b"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_jax_fastq/PARITY_GATES.json",
+      "sha256": "b201ca60bfbe5d42e04ce1f21b202f421a0e8f4069291bc570dec8f813bf197b"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_jax_fastq/PREFLIGHT.json",
+      "sha256": "b74e68cd05a7f83c1b685d62164d309a213a890a1a0fdaa31f8ee7fcdee2d9ef"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_jax_cbq/RESULT.json",
+      "sha256": "23c9e365842f91d2de6f80ae21f0c57949160fd47a4be1b670870362d041a440"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_jax_cbq/PARITY_GATES.json",
+      "sha256": "b201ca60bfbe5d42e04ce1f21b202f421a0e8f4069291bc570dec8f813bf197b"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_jax_cbq/PREFLIGHT.json",
+      "sha256": "1ec0f5fbbc51f3d3ddb6640d1c79d719b62f5bf24b2520c679403549e3fb7915"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_320k_fastq/RESULT.json",
+      "sha256": "ea9b9c613db9d4558ae004ed0903544021f5aae515573b4611201cf684712f3b"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_320k_fastq/PARITY_GATES.json",
+      "sha256": "b0f0acb7bd0992bde24173635be58b343c555910536b44fcc4800f8dc225039d"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_320k_fastq/PREFLIGHT.json",
+      "sha256": "123a839cd3b260ac3e06e2b0a3a3cff015d9e8669f3bb11bb6ad0a88866d07c4"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_320k_cbq/RESULT.json",
+      "sha256": "7a721dcd75311221c80554e93af32033af01dfee9bce5299f070e2c235e4fbb9"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_320k_cbq/PARITY_GATES.json",
+      "sha256": "b0f0acb7bd0992bde24173635be58b343c555910536b44fcc4800f8dc225039d"
+    },
+    {
+      "logical_uri": "record://paper-2026-flex-v1.9.5/h1_320k_cbq/PREFLIGHT.json",
+      "sha256": "99fd9dbd720b3b4a6e7adec36cdc2ac0dcc51f9ccaded557a96e786d9e36edfb"
+    }
+  ]
+}
